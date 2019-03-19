@@ -1,4 +1,43 @@
+body {
+    background-color: #f2f2f2;
+}
+
 button {
     background: teal;
     color: white;
+    border-radius: 5px;
+    padding: 3px 12px;
+    margin: 2px;
+    font-size: 12px;
+}
+
+p {
+    margin: 5px;
+    padding: 0px;
+}
+
+#buttons {
+    align-content: stretch;
+}
+
+#submitButton {
+    background: teal;
+    color: white;
+    border-radius: 5px;
+    padding: 3px 12px;
+    margin: 2px;
+    font-size: 12px;
+}
+
+/* .form-control {
+    width: 30%;
+} */
+
+.makeBold {
+    font-weight: 500;
+}
+
+.fixDisplay {
+    display: inline-block;
+    padding: 10px;
 }

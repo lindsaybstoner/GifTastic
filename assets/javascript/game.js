@@ -15,6 +15,11 @@ function createButtons() {
 createButtons();
 
 function createSubmits() {
+    var directionText = $("<p>");
+    directionText.text("Add an animal");
+    directionText.addClass("makeBold")
+    $("#submitInfo").append(directionText);
+
     var makeInput = $("<input>");
     makeInput.addClass("form-control");
     makeInput.attr("type", "text");
@@ -44,6 +49,8 @@ $("#submitButton").on("click", function () {
         startButtons.push(submitButtonText);
         console.log(startButtons);
         createButtons();
+        $("#submitInfo").empty();
+        createSubmits();
     }
 
 
@@ -76,6 +83,7 @@ function makeGif() {
                 for (var i = 0; i < results.length; i++) {
 
                     var gifDiv = $("<div>");
+                    gifDiv.addClass("fixDisplay")
 
                     var rating = results[i].rating;
 
@@ -83,22 +91,42 @@ function makeGif() {
 
                     var animalImage = $("<img>");
                     animalImage.attr("src", results[i].images.fixed_height_still.url);
+                    animalImage.attr("data-still", results[i].images.fixed_height_still.url);
+                    animalImage.attr("data-animate", results[i].images.fixed_height.url);
+                    animalImage.attr("data-state", "still");
+                    animalImage.addClass("gif");
+                    
 
-                    gifDiv.prepend(p);
                     gifDiv.prepend(animalImage);
+                    gifDiv.prepend(p);
 
                     $("#gifs-appear-here").prepend(gifDiv);
                 }
+
+                $(".gif").on("click", function() {
+                    // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+                    var state = $(this).attr("data-state");
+                    // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+                    // Then, set the image's data-state to animate
+                    // Else set src to the data-still value
+                    if (state === "still") {
+                      $(this).attr("src", $(this).attr("data-animate"));
+                      $(this).attr("data-state", "animate");
+                    } else {
+                      $(this).attr("src", $(this).attr("data-still"));
+                      $(this).attr("data-state", "still");
+                    }
+                  });
             });
     });
 
 };
 
-//change the info in here for the on click of hte gifs to get them to move
+/* //change the info in here for the on click of the gifs to get them to move
 $(document.body).on("click", ".checkbox", function () {
 
     // Get the number of the button from its data attribute and hold in a variable called  toDoNumber.
     var toDoNumber = $(this).attr("data-to-do");
 
 
-});
+}); */
