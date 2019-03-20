@@ -38,7 +38,7 @@ function createSubmits() {
 createSubmits();
 
 
-$("#submitButton").on("click", function () {
+$(document.body).on("click", "#submitButton", function () {
 
 
     event.preventDefault();
