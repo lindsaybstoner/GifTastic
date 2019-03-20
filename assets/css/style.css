@@ -11,6 +11,10 @@ button {
     font-size: 12px;
 }
 
+img {
+    max-width: 100%;
+}
+
 p {
     margin: 5px;
     padding: 0px;
