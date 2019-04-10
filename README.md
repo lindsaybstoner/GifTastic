@@ -1,1 +1,4 @@
 # GifTastic
+description of the problem: create a website that prints an array of animals into buttons where the user can add their own buttons and when you click on the buttons they prepend gifs from from the gifty api
+how you solved it: looking at in class activies like the starting and stopping gifs to get the general idea of how to add that functionality and also the activiy where we dynamically created buttons on the page in js
+technical approach: I pretty much just used js to populate the page with a looop through the arrya where I stored the button names and then only did the ajax call when the user clicked on the buttons
